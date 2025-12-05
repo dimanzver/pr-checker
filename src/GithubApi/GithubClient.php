@@ -48,6 +48,8 @@ class GithubClient
                     baseRefName
                     mergeable
                     url
+                    state
+                    isDraft
                   }
                   pageInfo {
                     hasNextPage
@@ -70,6 +72,10 @@ class GithubClient
 
         foreach ($data->data->viewer->pullRequests->nodes as $row) {
             if (!in_array($row->baseRepository->nameWithOwner, $repositoryNames)) {
+                continue;
+            }
+
+            if ($row->isDraft) {
                 continue;
             }
 
