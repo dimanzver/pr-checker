@@ -3,6 +3,7 @@
 ```
 notify-send "test" --action "to_github=Перейти в Github"
 ```
+Если нет, то на Debian-based ставится через ```sudo apt-get install libnotify-bin```
 
 # Настройка
 1) Создать файл .env
